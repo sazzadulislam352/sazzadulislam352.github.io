@@ -1,0 +1,434 @@
+<title>Sazzadul Islam, Researcher</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Source+Serif+4:ital,opsz,wght@0,8..60,400;0,8..60,600;1,8..60,400&family=Source+Sans+3:wght@400;500;600;700&display=swap">
+<style>
+/* Layout: university faculty profile — crimson rule + institutional header with portrait, then a sticky contents column beside a single formal reading column (research statement, national relevance, metrics, numbered bibliography, CV). */
+:root{
+  --bg:#ffffff; --band:#f4f5f7; --fg:#1c2230; --muted:#5d6574; --rule:#d9dce2; --rule-strong:#1c2230;
+  --navy:#1f3a5f; --crimson:#8a1c2b; --crimson-soft:#f6e9eb; --navy-soft:#e8edf4;
+  --display:"EB Garamond", Garamond, "Times New Roman", serif;
+  --text:"Source Serif 4", Georgia, "Times New Roman", serif;
+  --ui:"Source Sans 3", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#12151b; --band:#191d25; --fg:#e6e8ec; --muted:#9aa2b0; --rule:#2c323d; --rule-strong:#e6e8ec;
+  --navy:#9db8de; --crimson:#e0828f; --crimson-soft:#2e1c20; --navy-soft:#1c2738; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#12151b; --band:#191d25; --fg:#e6e8ec; --muted:#9aa2b0; --rule:#2c323d; --rule-strong:#e6e8ec;
+  --navy:#9db8de; --crimson:#e0828f; --crimson-soft:#2e1c20; --navy-soft:#1c2738; color-scheme:dark}
+
+*{box-sizing:border-box}
+html{scroll-padding-top:24px}
+body{background:var(--bg);color:var(--fg);font-family:var(--text);font-size:17px;line-height:1.7}
+a{color:var(--navy);text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{color:var(--crimson)}
+:focus-visible{outline:2px solid var(--crimson);outline-offset:2px}
+p{margin:0}
+.inner{max-width:1100px;margin:0 auto;padding-left:max(20px, env(safe-area-inset-left, 0px));padding-right:max(20px, env(safe-area-inset-right, 0px))}
+
+/* top strip */
+.strip{border-top:6px solid var(--crimson);border-bottom:1px solid var(--rule);font-family:var(--ui);font-size:13px;color:var(--muted)}
+.strip .inner{display:flex;justify-content:space-between;flex-wrap:wrap;gap:6px 16px;padding-block:9px}
+.strip b{color:var(--fg);font-weight:600;letter-spacing:.02em}
+
+/* header */
+header.profile{border-bottom:1px solid var(--rule)}
+header.profile .inner{display:grid;grid-template-columns:200px minmax(0,1fr);gap:40px;align-items:center;padding-block:44px}
+.portrait{width:200px;height:240px;object-fit:cover;object-position:50% 22%;border:1px solid var(--rule);padding:5px;background:var(--bg);max-width:100%}
+.name{font-family:var(--display);font-weight:500;font-size:clamp(40px,5.5vw,56px);line-height:1.05;margin:0;letter-spacing:.005em}
+.title{font-family:var(--ui);font-size:15px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--crimson);margin-top:10px}
+.affil{margin-top:12px;font-size:17px;color:var(--fg)}
+.affil i{color:var(--muted)}
+.contactline{margin-top:16px;display:flex;flex-wrap:wrap;gap:6px 20px;font-family:var(--ui);font-size:14.5px}
+.contactline span{color:var(--muted)}
+.contactline .em{user-select:all;color:var(--fg)}
+
+/* metrics bar under header */
+.metrics{background:var(--band);border-bottom:1px solid var(--rule)}
+.metrics .inner{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));padding-block:0}
+.m{padding:18px 16px;border-left:1px solid var(--rule);display:flex;flex-direction:column;gap:2px}
+.m:first-child{border-left:0;padding-left:0}
+.m b{font-family:var(--display);font-size:32px;font-weight:500;line-height:1;font-variant-numeric:tabular-nums lining-nums}
+.m span{font-family:var(--ui);font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+/* body layout */
+.layout{display:grid;grid-template-columns:200px minmax(0,1fr);gap:56px;padding-block:48px 72px}
+.toc{position:sticky;top:24px;align-self:start;font-family:var(--ui);font-size:14px;display:flex;flex-direction:column;gap:2px;border-top:2px solid var(--rule-strong);padding-top:12px}
+.toc .h{font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:700;margin-bottom:6px}
+.toc a{color:var(--fg);text-decoration:none;padding:4px 0 4px 10px;border-left:2px solid transparent}
+.toc a:hover,.toc a.on{border-left-color:var(--crimson);color:var(--crimson)}
+.toc .cv{margin-top:14px;font-size:13px;color:var(--muted);line-height:1.5}
+
+main{min-width:0;display:flex;flex-direction:column;gap:56px}
+section{display:flex;flex-direction:column;gap:18px}
+h2{font-family:var(--display);font-weight:500;font-size:30px;line-height:1.2;margin:0;padding-bottom:8px;border-bottom:1px solid var(--rule);display:flex;align-items:baseline;gap:12px}
+h2 small{font-family:var(--ui);font-size:12px;font-weight:700;letter-spacing:.14em;color:var(--crimson)}
+h3{font-family:var(--display);font-weight:600;font-size:21px;margin:0;line-height:1.3}
+.prose{display:flex;flex-direction:column;gap:14px;max-width:68ch}
+.prose .first::first-letter{font-family:var(--display);font-size:3.4em;float:left;line-height:.8;margin:8px 8px 0 0;color:var(--crimson)}
+.kw{display:flex;flex-wrap:wrap;gap:6px 8px;font-family:var(--ui);font-size:13px}
+.kw span{border:1px solid var(--rule);padding:2px 10px;border-radius:2px;color:var(--fg)}
+
+/* national relevance */
+.nr-intro{font-size:16px;color:var(--muted);max-width:68ch}
+.contrib{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0;border:1px solid var(--rule)}
+.contrib article{padding:22px 22px 24px;display:flex;flex-direction:column;gap:10px;border-left:1px solid var(--rule);min-width:0}
+.contrib article:first-child{border-left:0}
+.contrib .no{font-family:var(--ui);font-size:12px;font-weight:700;letter-spacing:.12em;color:var(--crimson)}
+.contrib h3{font-size:20px}
+.contrib dl{margin:0;display:flex;flex-direction:column;gap:8px;font-size:15.5px;line-height:1.55}
+.contrib dt{font-family:var(--ui);font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.contrib dd{margin:0}
+.contrib .ev{margin-top:auto;padding-top:10px;border-top:1px dotted var(--rule);font-family:var(--ui);font-size:13px;color:var(--muted)}
+.contrib .ev b{color:var(--fg)}
+
+/* impact */
+.impact{display:grid;grid-template-columns:minmax(0,300px) minmax(0,1fr);gap:28px;align-items:start}
+table.scholar{width:100%;border-collapse:collapse;font-family:var(--ui);font-size:14.5px}
+table.scholar th,table.scholar td{padding:9px 10px;border-bottom:1px solid var(--rule);text-align:right;font-variant-numeric:tabular-nums}
+table.scholar th:first-child,table.scholar td:first-child{text-align:left}
+table.scholar thead th{font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);font-weight:700;border-bottom:2px solid var(--rule-strong)}
+table.scholar td b{font-weight:700}
+.note{font-family:var(--ui);font-size:12.5px;color:var(--muted);margin-top:8px}
+figure{margin:0;border:1px solid var(--rule);padding:18px 18px 12px;min-width:0}
+figcaption{font-family:var(--ui);font-size:13px;color:var(--muted);margin-top:8px}
+figcaption b{color:var(--fg)}
+.fig-title{font-family:var(--ui);font-size:13px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;margin-bottom:10px}
+svg.chart{width:100%;height:auto;display:block}
+svg.chart text{font-family:var(--ui);font-size:12px;fill:var(--muted)}
+svg.chart .v{fill:var(--fg);font-weight:600}
+svg.chart .g{stroke:var(--rule)}
+svg.chart .b{fill:var(--navy)}
+svg.chart .b.h{fill:var(--crimson)}
+.areas{display:flex;flex-direction:column;gap:9px;font-family:var(--ui);font-size:14px}
+.area{display:grid;grid-template-columns:minmax(0,190px) minmax(0,1fr) 64px;gap:12px;align-items:center}
+.area .t{height:10px;background:var(--band);border:1px solid var(--rule)}
+.area .t i{display:block;height:100%;background:var(--navy)}
+.area .n{text-align:right;font-variant-numeric:tabular-nums;color:var(--muted)}
+.two{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:18px;grid-column:1 / -1}
+
+/* bibliography */
+.bib-tools{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px;font-family:var(--ui);font-size:14px}
+.seg{display:inline-flex;border:1px solid var(--rule)}
+.seg button{font:600 13px var(--ui);background:var(--bg);color:var(--fg);border:0;border-left:1px solid var(--rule);padding:6px 14px;cursor:pointer}
+.seg button:first-child{border-left:0}
+.seg button[aria-pressed="true"]{background:var(--navy);color:var(--bg)}
+ol.bib{list-style:none;margin:0;padding:0;counter-reset:j}
+.bib li{display:grid;grid-template-columns:52px minmax(0,1fr) 74px;gap:14px;padding:16px 0;border-bottom:1px solid var(--rule);align-items:start}
+.bib .id{font-family:var(--ui);font-weight:700;font-size:14px;color:var(--crimson);padding-top:2px}
+.bib .cit{font-size:16.5px;line-height:1.6}
+.bib .cit .ti{font-weight:600}
+.bib .cit em{font-style:italic}
+.bib .cit u{text-decoration:none;font-weight:600;border-bottom:1px solid var(--fg)}
+.bib .meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:6px;font-family:var(--ui);font-size:12px}
+.bib .meta span{padding:1px 8px;border-radius:2px;background:var(--navy-soft);color:var(--navy);font-weight:600}
+.bib .meta span.first{background:var(--crimson-soft);color:var(--crimson)}
+.bib .cc{text-align:right;font-family:var(--ui)}
+.bib .cc b{display:block;font-family:var(--display);font-size:26px;font-weight:500;line-height:1;font-variant-numeric:tabular-nums lining-nums}
+.bib .cc span{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+
+/* cv lists */
+.cv{display:flex;flex-direction:column}
+.cv .row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:20px;padding:14px 0;border-bottom:1px solid var(--rule)}
+.cv .row:first-child{border-top:1px solid var(--rule)}
+.cv .when{font-family:var(--ui);font-size:14px;color:var(--muted);font-variant-numeric:tabular-nums;padding-top:3px}
+.cv .what b{font-weight:600}
+.cv .what i{color:var(--muted)}
+.cv .what p{font-size:15.5px;margin-top:4px}
+.grid2{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:28px}
+.grid2 h3{font-family:var(--ui);font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-bottom:6px}
+ul.plain{list-style:none;margin:0;padding:0;display:flex;flex-direction:column}
+ul.plain li{padding:10px 0;border-bottom:1px solid var(--rule);font-size:16px}
+ul.plain li small{display:block;font-family:var(--ui);font-size:13.5px;color:var(--muted)}
+.skills{display:grid;grid-template-columns:180px minmax(0,1fr);border-top:1px solid var(--rule);font-size:15.5px}
+.skills dt,.skills dd{margin:0;padding:10px 0;border-bottom:1px solid var(--rule)}
+.skills dt{font-family:var(--ui);font-weight:600;font-size:14px;padding-right:14px}
+
+/* contact */
+.contact{border:1px solid var(--rule);border-top:3px solid var(--crimson);padding:24px;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px}
+.contact dl{margin:0;display:grid;grid-template-columns:auto minmax(0,1fr);gap:8px 16px;font-family:var(--ui);font-size:15px}
+.contact dt{color:var(--muted)}
+.contact dd{margin:0;overflow-wrap:anywhere}
+.contact button{font:600 12.5px var(--ui);margin-left:8px;border:1px solid var(--rule);background:var(--bg);color:var(--fg);padding:2px 10px;cursor:pointer}
+footer{border-top:1px solid var(--rule);font-family:var(--ui);font-size:13px;color:var(--muted)}
+footer .inner{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;padding-block:20px}
+
+@media (max-width:900px){
+  .layout{grid-template-columns:minmax(0,1fr);gap:28px}
+  .toc{position:static;flex-direction:row;flex-wrap:wrap;gap:4px 14px}
+  .toc .h,.toc .cv{display:none}
+  .toc a{border-left:0;padding:2px 0}
+  .contrib{grid-template-columns:minmax(0,1fr)}
+  .contrib article{border-left:0;border-top:1px solid var(--rule)}
+  .contrib article:first-child{border-top:0}
+  .impact,.two,.grid2,.contact{grid-template-columns:minmax(0,1fr)}
+  .metrics .inner{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .m:nth-child(4){border-left:0;padding-left:0}
+  .m:nth-child(n+4){border-top:1px solid var(--rule)}
+}
+@media (max-width:600px){
+  body{font-size:16px}
+  header.profile .inner{grid-template-columns:minmax(0,1fr);gap:22px;padding-block:30px}
+  .portrait{width:150px;height:180px}
+  .metrics .inner{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .m{border-left:0;padding-left:0}
+  .m:nth-child(even){border-left:1px solid var(--rule);padding-left:16px}
+  .m:nth-child(n+3){border-top:1px solid var(--rule)}
+  .m:nth-child(4){padding-left:16px;border-left:1px solid var(--rule)}
+  .bib li{grid-template-columns:minmax(0,1fr) 56px;gap:4px 12px}
+  .bib .id{grid-column:1 / -1}
+  .cv .row{grid-template-columns:minmax(0,1fr);gap:2px}
+  .skills{grid-template-columns:minmax(0,1fr)}
+  .skills dt{border-bottom:0;padding-bottom:0}
+  .area{grid-template-columns:minmax(0,1fr) 58px;gap:4px 10px}
+  .area .l{grid-column:1 / -1}
+}
+</style>
+
+<div class="strip"><div class="inner"><span><b>Sazzadul Islam</b> · Academic Profile</span><span>Washington, DC, United States</span></div></div>
+
+<header class="profile"><div class="inner">
+  <img class="portrait" src="data:image/jpeg;base64,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" alt="Portrait of Sazzadul Islam" width="200" height="240">
+  <div>
+    <h1 class="name">Sazzadul Islam, M.S.</h1>
+    <div class="title">Researcher in Machine Learning &amp; Big Data Analytics</div>
+    <p class="affil">M.S. in Big Data Analytics, <i>Summa Cum Laude</i>, Bay Atlantic University, Washington, DC<br>Research areas: financial risk analytics, AML/KYC compliance, explainable AI, healthcare decision support</p>
+    <div class="contactline">
+      <a href="https://scholar.google.com/citations?user=74bANiAAAAAJ" target="_blank" rel="noopener">Google Scholar</a>
+      <a href="https://www.linkedin.com/in/sazzadul-islam-2024-" target="_blank" rel="noopener">LinkedIn</a>
+      <a href="https://github.com/sazzadulislam352" target="_blank" rel="noopener">GitHub</a>
+      <span class="em">sazzadulislam352@gmail.com</span>
+    </div>
+  </div>
+</div></header>
+
+<div class="metrics"><div class="inner">
+  <div class="m"><b>8</b><span>Peer-reviewed articles</span></div>
+  <div class="m"><b>170</b><span>Citations</span></div>
+  <div class="m"><b>5</b><span>h-index</span></div>
+  <div class="m"><b>5</b><span>i10-index</span></div>
+  <div class="m"><b>5</b><span>First/sole-author papers</span></div>
+</div></div>
+
+<div class="inner layout">
+  <nav class="toc" aria-label="Contents">
+    <span class="h">Contents</span>
+    <a href="#bio">Biography</a>
+    <a href="#statement">Research Statement</a>
+    <a href="#relevance">National Relevance</a>
+    <a href="#impact">Research Impact</a>
+    <a href="#publications">Publications</a>
+    <a href="#education">Education</a>
+    <a href="#experience">Experience</a>
+    <a href="#honors">Honors</a>
+    <a href="#expertise">Expertise</a>
+    <a href="#contact">Contact</a>
+    <p class="cv">Citation data from Google Scholar, October 2026.</p>
+  </nav>
+
+  <main>
+    <section id="bio">
+      <h2>Biography</h2>
+      <div class="prose">
+        <p class="first">Sazzadul Islam is a data scientist and researcher based in Washington, DC, whose work applies machine learning and big data analytics to risk, compliance and decision-making problems in the banking and healthcare sectors. He earned his M.S. in Big Data Analytics from Bay Atlantic University, graduating Summa Cum Laude with a 3.94 GPA, and received the university's Presidential Award in 2024.</p>
+        <p>Before his graduate studies, he spent four years in corporate finance and accounting in Bangladesh, where he managed financial reporting, internal audits, budgeting and regulatory tax compliance. This practical grounding in how financial institutions measure and report risk informs the applied focus of his research.</p>
+        <p>He has authored or co-authored eight peer-reviewed journal articles, five as first or sole author, which together have been cited 170 times. He is preparing to pursue a Doctor of Computer Science, with a research agenda in trustworthy machine learning for regulated industries.</p>
+      </div>
+      <div class="kw"><span>Machine learning</span><span>Deep learning</span><span>Big data analytics</span><span>Explainable AI</span><span>Financial risk modeling</span><span>AML/KYC</span><span>Healthcare informatics</span><span>Data engineering</span></div>
+    </section>
+
+    <section id="statement">
+      <h2>Research Statement</h2>
+      <div class="prose">
+        <p>Banks, regulators and healthcare providers increasingly rely on automated models to make consequential decisions: whether a bank holds enough liquidity to survive a shock, whether a transaction is suspicious, whether a borrower is creditworthy, or how a clinician should act on patient data. These models are often accurate but opaque, and many are not built for the volume and speed of modern data.</p>
+        <p>My research addresses this gap. I design machine learning and deep learning methods that operate at big-data scale while remaining interpretable and auditable, so that their outputs can be trusted by risk officers, compliance teams, examiners and clinicians. My work spans three connected threads: <b>(1)</b> deep learning for financial stress testing and credit risk under regulatory frameworks such as Basel III; <b>(2)</b> machine learning for anti-money-laundering and anomaly detection in large financial data pipelines; and <b>(3)</b> real-time human-AI decision support and quality automation for US healthcare systems.</p>
+        <p>Looking ahead, I aim to develop explainable, regulation-aware learning systems that can be deployed in supervised industries, and to study how such systems can be evaluated for reliability, fairness and compliance before they are trusted with high-stakes decisions.</p>
+      </div>
+    </section>
+
+    <section id="relevance">
+      <h2>Research Contributions &amp; National Relevance</h2>
+      <p class="nr-intro">My published work addresses problems that sit at the center of United States priorities in financial stability, financial-crime prevention and healthcare delivery. Each contribution below is documented in peer-reviewed literature.</p>
+      <div class="contrib">
+        <article>
+          <span class="no">CONTRIBUTION I</span>
+          <h3>Deep learning for banking stability and credit risk</h3>
+          <dl>
+            <dt>Work</dt><dd>VaR/CVaR-based deep learning stress testing for liquidity risk, explainable credit-risk and loan-approval models, and AI-driven default modeling for Basel III risk-weighted assets.</dd>
+            <dt>Relevance to the U.S.</dt><dd>Supports the stress-testing and capital-adequacy practices that underpin the safety of the U.S. banking system and protect depositors and the wider economy.</dd>
+          </dl>
+          <p class="ev"><b>Evidence:</b> articles [J1], [J2], [J7] · 94 citations</p>
+        </article>
+        <article>
+          <span class="no">CONTRIBUTION II</span>
+          <h3>Machine learning for financial-crime detection</h3>
+          <dl>
+            <dt>Work</dt><dd>ML-based AML/KYC transaction monitoring for suspicious-activity detection, and anomaly detection in large-scale financial data pipelines.</dd>
+            <dt>Relevance to the U.S.</dt><dd>Addresses the detection of money laundering and fraud that U.S. financial institutions must report under anti-money-laundering obligations, a matter of economic and national security.</dd>
+          </dl>
+          <p class="ev"><b>Evidence:</b> articles [J3], [J4] · 62 citations</p>
+        </article>
+        <article>
+          <span class="no">CONTRIBUTION III</span>
+          <h3>AI decision support for U.S. healthcare</h3>
+          <dl>
+            <dt>Work</dt><dd>A real-time human-AI decision support framework for U.S. healthcare providers, and NLP- and ML-based quality automation for healthcare HRM software.</dd>
+            <dt>Relevance to the U.S.</dt><dd>Targets faster, data-driven clinical and operational decisions and more reliable, compliant software in the U.S. healthcare system.</dd>
+          </dl>
+          <p class="ev"><b>Evidence:</b> articles [J5], [J6], [J8] · 14 citations</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="impact">
+      <h2>Research Impact</h2>
+      <div class="impact">
+        <div>
+          <table class="scholar">
+            <thead><tr><th>Indicator</th><th>All time</th></tr></thead>
+            <tbody>
+              <tr><td>Citations</td><td><b>170</b></td></tr>
+              <tr><td>h-index</td><td><b>5</b></td></tr>
+              <tr><td>i10-index</td><td><b>5</b></td></tr>
+              <tr><td>Peer-reviewed articles</td><td><b>8</b></td></tr>
+              <tr><td>First or sole author</td><td><b>5</b></td></tr>
+              <tr><td>Most-cited article</td><td><b>49</b></td></tr>
+            </tbody>
+          </table>
+          <p class="note">Source: Google Scholar profile, October 2026. i10-index counts articles with at least 10 citations.</p>
+        </div>
+        <figure>
+          <div class="fig-title">Citations by year of publication</div>
+          <svg class="chart" id="yearchart" viewBox="0 0 480 220" role="img" aria-label="Bar chart of citations by publication year"></svg>
+          <figcaption><b>Figure 1.</b> Total citations received by articles, grouped by the year each article was published.</figcaption>
+        </figure>
+        <figure class="two" style="display:block">
+          <div class="fig-title">Citations by research thread</div>
+          <div class="areas" id="areas"></div>
+          <figcaption><b>Figure 2.</b> Share of total citations for each line of research described above.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section id="publications">
+      <h2>Peer-Reviewed Journal Articles</h2>
+      <div class="bib-tools">
+        <div class="seg" role="group" aria-label="Sort articles">
+          <button type="button" id="s-cit" data-s="cit" aria-pressed="true">By citations</button>
+          <button type="button" id="s-year" data-s="year" aria-pressed="false">By year</button>
+        </div>
+        <span style="color:var(--muted)">Author's name underlined · <a href="https://scholar.google.com/citations?user=74bANiAAAAAJ" target="_blank" rel="noopener">Verify on Google Scholar</a></span>
+      </div>
+      <ol class="bib" id="bib"></ol>
+    </section>
+
+    <section id="education">
+      <h2>Education</h2>
+      <div class="cv">
+        <div class="row"><span class="when">2023 – 2026</span><div class="what"><b>Master of Science, Big Data Analytics</b><br><i>Bay Atlantic University, Washington, DC</i><p>GPA 3.94/4.00, Summa Cum Laude. Coursework in machine learning, big data technologies, data engineering, data warehousing, database management and advanced statistical modeling.</p></div></div>
+        <div class="row"><span class="when">2019 – 2020</span><div class="what"><b>Master of Business Administration</b><br><i>National University, Bangladesh</i><p>Concentration in financial accounting, auditing and corporate tax planning.</p></div></div>
+        <div class="row"><span class="when">2018</span><div class="what"><b>Bachelor of Business Administration (Honours), Accounting</b><br><i>National University, Bangladesh</i></div></div>
+      </div>
+    </section>
+
+    <section id="experience">
+      <h2>Professional Experience</h2>
+      <div class="cv">
+        <div class="row"><span class="when">Oct – Dec 2025</span><div class="what"><b>Data Analytics Intern</b>, <i>Impactoverse Ltd, Tallinn, Estonia</i><p>Developed machine learning models for market forecasting and Power BI reporting; reduced data processing time by 45%.</p></div></div>
+        <div class="row"><span class="when">2022 – 2023</span><div class="what"><b>Financial Analyst, Officer</b>, <i>T&amp;B Engineering Ltd, Dhaka</i><p>Financial modeling, internal audits, budgeting, forecasting and variance analysis for senior management.</p></div></div>
+        <div class="row"><span class="when">2019 – 2022</span><div class="what"><b>Finance and Administration Officer</b>, <i>FIFO Teach, Dhaka</i><p>General accounting, VAT and tax compliance, budget variance analysis and procurement.</p></div></div>
+      </div>
+      <h3 style="margin-top:8px">Selected Applied Projects</h3>
+      <div class="cv">
+        <div class="row"><span class="when">2024</span><div class="what"><b>Customer Market Analysis</b><p>Clustering of 12,000+ transactions into four customer segments; Tableau dashboard with 12 visualizations and 4 KPIs.</p></div></div>
+        <div class="row"><span class="when">2024</span><div class="what"><b>Automated Employee Reporting System</b><p>SQL and Pandas pipeline over 10,000+ records that reduced processing time by 45%.</p></div></div>
+        <div class="row"><span class="when">2024</span><div class="what"><b>Sales Performance Analysis</b><p>Reporting workflow over a 50,000-record dataset that made sales reporting 40% faster.</p></div></div>
+      </div>
+    </section>
+
+    <section id="honors">
+      <h2>Honors, Awards &amp; Certifications</h2>
+      <div class="grid2">
+        <div><h3>Honors and awards</h3><ul class="plain">
+          <li>Presidential Award, with $2,000 tuition scholarship<small>Bay Atlantic University, 2024</small></li>
+          <li>Summa Cum Laude, M.S. Big Data Analytics<small>Bay Atlantic University, 2026</small></li>
+          <li>President's List<small>Bay Atlantic University, Fall 2023 and Spring 2024</small></li>
+        </ul></div>
+        <div><h3>Professional certifications</h3><ul class="plain">
+          <li>CompTIA Data+ (DA0-002)<small>CompTIA, July 2026 · valid through July 2029</small></li>
+          <li>Professional Data Analyst Certification<small>Hiring Fluency · score 83%</small></li>
+          <li>SQL for Data Analysis; Python for Data Science<small>DataSkool.org, 2025</small></li>
+        </ul></div>
+      </div>
+    </section>
+
+    <section id="expertise">
+      <h2>Technical Expertise</h2>
+      <dl class="skills">
+        <dt>Machine learning</dt><dd>Deep learning, predictive modeling, classification, regression, anomaly detection, explainable AI</dd>
+        <dt>Programming</dt><dd>Python (Pandas, NumPy, scikit-learn, Matplotlib), SQL</dd>
+        <dt>Data engineering</dt><dd>ETL pipeline design, data modeling, data warehousing, SQL Server, MySQL</dd>
+        <dt>Analytics and BI</dt><dd>Statistical analysis, forecasting, A/B testing, Power BI, Tableau</dd>
+        <dt>Domain</dt><dd>Financial risk, credit analysis, AML/KYC compliance, auditing, healthcare data</dd>
+        <dt>Languages</dt><dd>English (professional), Bangla (native), Hindi, Urdu, Arabic</dd>
+      </dl>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <div class="contact">
+        <p>I welcome inquiries about research collaboration, co-authorship, doctoral supervision and positions in data science and data engineering.</p>
+        <dl>
+          <dt>Email</dt><dd><span id="em">sazzadulislam352@gmail.com</span><button type="button" id="copy">Copy</button></dd>
+          <dt>Scholar</dt><dd><a href="https://scholar.google.com/citations?user=74bANiAAAAAJ" target="_blank" rel="noopener">scholar.google.com/citations?user=74bANiAAAAAJ</a></dd>
+          <dt>LinkedIn</dt><dd><a href="https://www.linkedin.com/in/sazzadul-islam-2024-" target="_blank" rel="noopener">linkedin.com/in/sazzadul-islam-2024-</a></dd>
+          <dt>GitHub</dt><dd><a href="https://github.com/sazzadulislam352" target="_blank" rel="noopener">github.com/sazzadulislam352</a></dd>
+          <dt>Location</dt><dd>Washington, DC, United States</dd>
+        </dl>
+      </div>
+    </section>
+  </main>
+</div>
+<footer><div class="inner"><span>© 2026 Sazzadul Islam</span><span>Last updated October 2026</span></div></footer>
+
+<script>
+const ME=/(S\. Islam|I\. Sazzadul)(?![.\w])/g;
+const PUBS=[
+ {id:"J1",y:2024,c:49,first:true,a:"S. Islam, R. Sultana",t:"VaR and CVaR-based stress testing using deep learning for liquidity risk forecasting and banking stability assessment",j:"Review of Applied Science and Technology",v:"3(03), 1–30"},
+ {id:"J2",y:2023,c:43,first:true,a:"S. Islam",t:"Explainable data analytics in financial decision systems: Enhancing transparency in big data–driven credit risk and loan approval models",j:"International Journal of Scientific Interdisciplinary Research",v:"4(2), 31–67"},
+ {id:"J3",y:2022,c:41,first:false,a:"T. B. Sohrab, S. Islam",t:"Advanced financial data analytics for anomaly detection and pattern discovery in large-scale financial data pipelines",j:"American Journal of Advanced Technology and Engineering Solutions",v:"2(02)"},
+ {id:"J4",y:2025,c:21,first:true,a:"S. Islam",t:"Machine learning–based AML/KYC transaction monitoring for suspicious activity detection and compliance risk reduction in digital banking",j:"ASRC Procedia: Global Perspectives in Science and Scholarship",v:"1(01), 1740–1775"},
+ {id:"J5",y:2025,c:10,first:true,a:"I. Sazzadul, J. M. Ismail, B. Sakera, S. A. S. Muhammad",t:"Designing a real-time human-AI decision support framework for US healthcare providers using big data analytics",j:"Journal of Computer Science and Technology Studies",v:"7(8), 716–723"},
+ {id:"J6",y:2024,c:3,first:false,a:"M. M. Bakhsh, M. S. A. Joy, S. Islam, N. Y. Nadia, A. Sarkar, M. S. Bari, S. A. Islam",t:"From compliance to code: An NLP-based QA automation framework for HRM software in the US healthcare sector",j:"Journal of Tianjin University (Tianjin Daxue Xuebao)",v:""},
+ {id:"J7",y:2026,c:2,first:true,a:"S. Islam",t:"AI-driven credit scoring and default probability modeling for Basel III risk-weighted asset optimization in banking",j:"American Journal of Scholarly Research and Innovation",v:"5(01), 1–32"},
+ {id:"J8",y:2025,c:1,first:false,a:"M. J. A. Riad, M. D. Rasheduzzaman, S. Islam, S. A. M. Islam, A. Sarkar, et al.",t:"AI- and ML-driven predictive quality orchestration for US healthcare and HRM systems: Enhancing test intelligence, defect forecasting, and compliance optimization in agile environments",j:"International Journal of Applied Mathematics",v:"38(12s)"}
+];
+const esc=s=>s.replace(/&/g,"&amp;").replace(/</g,"&lt;");
+const bib=document.getElementById("bib");
+function render(mode){
+  const list=[...PUBS].sort(mode==="year"?(a,b)=>b.y-a.y||b.c-a.c:(a,b)=>b.c-a.c);
+  bib.innerHTML=list.map(p=>`<li><span class="id">[${p.id}]</span><div><div class="cit">${esc(p.a).replace(ME,"<u>$1</u>")} (${p.y}). <span class="ti">${esc(p.t)}.</span> <em>${esc(p.j)}</em>${p.v?", "+esc(p.v):""}.</div><div class="meta"><span>Peer-reviewed journal</span>${p.first?'<span class="first">First / sole author</span>':""}</div></div><div class="cc"><b>${p.c}</b><span>citations</span></div></li>`).join("");
+}
+document.querySelectorAll(".seg button").forEach(b=>b.addEventListener("click",()=>{document.querySelectorAll(".seg button").forEach(x=>x.setAttribute("aria-pressed",x===b));render(b.dataset.s)}));
+render("cit");
+
+(function(){
+  const yrs={};PUBS.forEach(p=>yrs[p.y]=(yrs[p.y]||0)+p.c);
+  const k=Object.keys(yrs).sort(),max=60,W=480,L=34,B=186,T=14,bw=50,gap=(W-L-16-k.length*bw)/(k.length-1),top=Math.max(...Object.values(yrs));
+  let s="";[0,20,40,60].forEach(v=>{const y=B-v/max*(B-T);s+=`<line class="g" x1="${L}" x2="${W-6}" y1="${y}" y2="${y}"/><text x="${L-8}" y="${y+4}" text-anchor="end">${v}</text>`});
+  k.forEach((yr,i)=>{const v=yrs[yr],x=L+8+i*(bw+gap),h=v/max*(B-T);s+=`<rect class="b${v===top?" h":""}" x="${x}" y="${B-h}" width="${bw}" height="${h}"/><text class="v" x="${x+bw/2}" y="${B-h-6}" text-anchor="middle">${v}</text><text x="${x+bw/2}" y="${B+20}" text-anchor="middle">${yr}</text>`});
+  document.getElementById("yearchart").innerHTML=s;
+  const A=[["Banking stability and credit risk",94],["Financial-crime detection",62],["Healthcare decision support",14]],tot=170;
+  document.getElementById("areas").innerHTML=A.map(([n,v])=>`<div class="area"><span class="l">${n}</span><div class="t"><i style="width:${v/94*100}%"></i></div><span class="n">${v} · ${Math.round(v/tot*100)}%</span></div>`).join("");
+})();
+
+document.getElementById("copy").addEventListener("click",e=>{
+  const b=e.currentTarget,el=document.getElementById("em");
+  const sel=()=>{const r=document.createRange();r.selectNodeContents(el);const s=getSelection();s.removeAllRanges();s.addRange(r);b.textContent="Selected"};
+  try{navigator.clipboard.writeText(el.textContent).then(()=>{b.textContent="Copied";setTimeout(()=>b.textContent="Copy",1600)},sel)}catch(_){sel()}
+});
+const links=[...document.querySelectorAll(".toc a")];
+const io=new IntersectionObserver(es=>es.forEach(en=>{if(en.isIntersecting)links.forEach(l=>l.classList.toggle("on",l.getAttribute("href")==="#"+en.target.id))}),{rootMargin:"-30% 0px -65% 0px"});
+document.querySelectorAll("main section").forEach(s=>io.observe(s));
+</script>
