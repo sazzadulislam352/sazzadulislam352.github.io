@@ -194,6 +194,29 @@ ol.dirs li{counter-increment:d;display:grid;grid-template-columns:40px minmax(0,
 ol.dirs li::before{content:"Q" counter(d);font:700 14px var(--ui);color:var(--crimson);padding-top:3px}
 ol.dirs b{font-family:var(--display);font-size:18px;font-weight:600;display:block}
 
+/* applied projects & certifications */
+.pj-note{font-size:15px;color:var(--muted);max-width:68ch}
+.pj-list{display:flex;flex-direction:column;gap:16px}
+.pj{border:1px solid var(--rule);border-top:3px solid var(--navy);padding:20px 22px;display:flex;flex-direction:column;gap:10px;font-size:15.5px;line-height:1.6}
+.pj-head{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:4px 16px}
+.pj h4,.cert h4{font-family:var(--display);font-weight:600;font-size:21px;line-height:1.3;margin:0}
+.pj-date{font-family:var(--ui);font-size:13px;color:var(--muted)}
+.pj-data,.pj-files{font-family:var(--ui);font-size:13px;color:var(--muted)}
+.pj-btns{display:flex;flex-wrap:wrap;gap:8px;margin-top:2px}
+.btn{display:inline-flex;align-items:center;gap:6px;font:600 13.5px var(--ui);text-decoration:none;color:var(--bg);background:var(--navy);border:1px solid var(--navy);padding:7px 14px;border-radius:2px}
+.btn small{font-size:10.5px;letter-spacing:.06em;opacity:.8}
+.btn:hover{background:var(--crimson);border-color:var(--crimson);color:var(--bg)}
+.btn.ghost{background:transparent;color:var(--navy)}
+.btn.ghost:hover{color:var(--bg)}
+h3.sub{font-family:var(--ui);font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+.certs{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:16px}
+.cert{border:1px solid var(--rule);padding:18px;display:grid;grid-template-columns:84px minmax(0,1fr);gap:16px;align-items:start}
+.cert img{width:84px;height:84px;object-fit:contain;background:#fff;border:1px solid var(--rule);padding:4px;border-radius:2px}
+.cert h4{font-size:19px}
+.cert p{font-family:var(--ui);font-size:13.5px;color:var(--muted);margin-top:4px}
+.cert .cid{font-size:12px;overflow-wrap:anywhere}
+.cert .pj-btns{margin-top:10px}
+
 /* cv lists */
 .cv{display:flex;flex-direction:column}
 .cv .row{display:grid;grid-template-columns:150px minmax(0,1fr);gap:20px;padding:14px 0;border-bottom:1px solid var(--rule)}
@@ -228,7 +251,7 @@ footer .inner{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;
   .contrib{grid-template-columns:minmax(0,1fr)}
   .contrib article{border-left:0;border-top:1px solid var(--rule)}
   .contrib article:first-child{border-top:0}
-  .impact,.two,.grid2,.contact{grid-template-columns:minmax(0,1fr)}
+  .impact,.two,.grid2,.contact,.certs{grid-template-columns:minmax(0,1fr)}
   .metrics .inner{grid-template-columns:repeat(3,minmax(0,1fr))}
   .m:nth-child(4){border-left:0;padding-left:0}
   .m:nth-child(n+4){border-top:1px solid var(--rule)}
@@ -245,6 +268,9 @@ footer .inner{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;
   .bib li{grid-template-columns:minmax(0,1fr) 56px;gap:4px 12px}
   .bib .id{grid-column:1 / -1}
   .cv .row{grid-template-columns:minmax(0,1fr);gap:2px}
+  .pj{padding:16px}
+  .cert{grid-template-columns:64px minmax(0,1fr);gap:12px;padding:14px}
+  .cert img{width:64px;height:64px}
   .skills{grid-template-columns:minmax(0,1fr)}
   .skills dt{border-bottom:0;padding-bottom:0}
   .area{grid-template-columns:minmax(0,1fr) 58px;gap:4px 10px}
@@ -622,12 +648,56 @@ footer .inner{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;
         <div class="row"><span class="when">2022 – 2023</span><div class="what"><b>Financial Analyst, Officer</b>, <i>T&amp;B Engineering Ltd, Dhaka</i><p>Financial modeling, internal audits, budgeting, forecasting and variance analysis for senior management.</p></div></div>
         <div class="row"><span class="when">2019 – 2022</span><div class="what"><b>Finance and Administration Officer</b>, <i>FIFO Teach, Dhaka</i><p>General accounting, VAT and tax compliance, budget variance analysis and procurement.</p></div></div>
       </div>
-      <h3 style="margin-top:8px">Selected Applied Projects</h3>
-      <div class="cv">
-        <div class="row"><span class="when">2024</span><div class="what"><b>Customer Market Analysis</b><p>Clustering of 12,000+ transactions into four customer segments; Tableau dashboard with 12 visualizations and 4 KPIs.</p></div></div>
-        <div class="row"><span class="when">2024</span><div class="what"><b>Automated Employee Reporting System</b><p>SQL and Pandas pipeline over 10,000+ records that reduced processing time by 45%.</p></div></div>
-        <div class="row"><span class="when">2024</span><div class="what"><b>Sales Performance Analysis</b><p>Reporting workflow over a 50,000-record dataset that made sales reporting 40% faster.</p></div></div>
+      <h3 style="margin-top:8px" id="projects">Selected Applied Projects</h3>
+      <p class="pj-note">Each project links to its working dashboard, Python and SQL code, dataset, presentation and final report. The published resources are reproducible demonstrations built on synthetic sample datasets; the original project data are not public, and reported results refer to the original projects.</p>
+      <div class="pj-list">
+        <article class="pj">
+          <div class="pj-head"><h4>Customer Market Analysis</h4><span class="pj-date">Dec 2024 · Academic project</span></div>
+          <p><b>Goal.</b> Segment customers from raw transaction data to guide targeted marketing decisions.</p>
+          <p><b>Approach.</b> Cleaned and analyzed 12,000+ transaction rows in Python, applied segmentation to identify four customer groups, and built an interactive Tableau dashboard with 12 visualizations and 4 KPIs. The published code scores customers on recency, frequency and monetary value (RFM) in SQL and clusters them with K-Means in scikit-learn.</p>
+          <p><b>Result.</b> Insights informed three targeted marketing strategies.</p>
+          <div class="kw"><span>Python</span><span>pandas</span><span>scikit-learn (K-Means)</span><span>SQL</span><span>Tableau</span><span>Chart.js</span></div>
+          <p class="pj-data">Published sample: 249 transactions, 50 customers (synthetic).</p>
+          <div class="pj-btns">
+            <a class="btn" href="projects/customer-market-analysis/dashboard.html" target="_blank" rel="noopener">Live Dashboard</a>
+            <a class="btn" href="https://github.com/sazzadulislam352/sazzadulislam352.github.io/tree/main/projects/customer-market-analysis" target="_blank" rel="noopener">Code &amp; Data</a>
+            <a class="btn" href="projects/customer-market-analysis/presentation.pptx" download>Presentation <small>PPTX</small></a>
+            <a class="btn" href="projects/customer-market-analysis/report.pdf" target="_blank" rel="noopener">Final Report <small>PDF</small></a>
+          </div>
+          <p class="pj-files">Files: <a href="projects/customer-market-analysis/analysis.py" target="_blank" rel="noopener">analysis.py</a> · <a href="projects/customer-market-analysis/analysis.sql" target="_blank" rel="noopener">analysis.sql</a> · <a href="projects/customer-market-analysis/data.csv" download>data.csv</a></p>
+        </article>
+        <article class="pj">
+          <div class="pj-head"><h4>Automated Employee Reporting System</h4><span class="pj-date">Oct 2024 · Academic project</span></div>
+          <p><b>Goal.</b> Reduce the manual effort required to produce recurring employee performance reports.</p>
+          <p><b>Approach.</b> Engineered SQL-based performance analytics and used pandas to clean and standardize 10,000+ rows of employee data into an automated reporting workflow. The published code aggregates and ranks employees with SQL window functions and generates the monthly report in pandas.</p>
+          <p><b>Result.</b> Cut data processing time by 45%.</p>
+          <div class="kw"><span>Python</span><span>pandas</span><span>SQL</span><span>Process automation</span><span>Chart.js</span></div>
+          <p class="pj-data">Published sample: 200 records, 50 employees × 4 months (synthetic).</p>
+          <div class="pj-btns">
+            <a class="btn" href="projects/automated-employee-reporting/dashboard.html" target="_blank" rel="noopener">Live Dashboard</a>
+            <a class="btn" href="https://github.com/sazzadulislam352/sazzadulislam352.github.io/tree/main/projects/automated-employee-reporting" target="_blank" rel="noopener">Code &amp; Data</a>
+            <a class="btn" href="projects/automated-employee-reporting/presentation.pptx" download>Presentation <small>PPTX</small></a>
+            <a class="btn" href="projects/automated-employee-reporting/report.pdf" target="_blank" rel="noopener">Final Report <small>PDF</small></a>
+          </div>
+          <p class="pj-files">Files: <a href="projects/automated-employee-reporting/analysis.py" target="_blank" rel="noopener">analysis.py</a> · <a href="projects/automated-employee-reporting/analysis.sql" target="_blank" rel="noopener">analysis.sql</a> · <a href="projects/automated-employee-reporting/data.csv" download>data.csv</a></p>
+        </article>
+        <article class="pj">
+          <div class="pj-head"><h4>Sales Performance Analysis</h4><span class="pj-date">Mar 2024 · Academic project</span></div>
+          <p><b>Goal.</b> Speed up sales performance reporting for a large customer base.</p>
+          <p><b>Approach.</b> Combined Excel, SQL and Tableau to analyze a 50,000-record sales dataset and build a repeatable reporting workflow. The published code computes revenue, deal counts and quota attainment per representative in SQL and exports a multi-sheet Excel report with pandas.</p>
+          <p><b>Result.</b> Enabled 40% faster sales performance reporting.</p>
+          <div class="kw"><span>Python</span><span>pandas</span><span>SQL</span><span>Excel</span><span>Tableau</span><span>Chart.js</span></div>
+          <p class="pj-data">Published sample: 260 sales records, 10 representatives (synthetic).</p>
+          <div class="pj-btns">
+            <a class="btn" href="projects/sales-performance-analysis/dashboard.html" target="_blank" rel="noopener">Live Dashboard</a>
+            <a class="btn" href="https://github.com/sazzadulislam352/sazzadulislam352.github.io/tree/main/projects/sales-performance-analysis" target="_blank" rel="noopener">Code &amp; Data</a>
+            <a class="btn" href="projects/sales-performance-analysis/presentation.pptx" download>Presentation <small>PPTX</small></a>
+            <a class="btn" href="projects/sales-performance-analysis/report.pdf" target="_blank" rel="noopener">Final Report <small>PDF</small></a>
+          </div>
+          <p class="pj-files">Files: <a href="projects/sales-performance-analysis/analysis.py" target="_blank" rel="noopener">analysis.py</a> · <a href="projects/sales-performance-analysis/analysis.sql" target="_blank" rel="noopener">analysis.sql</a> · <a href="projects/sales-performance-analysis/data.csv" download>data.csv</a></p>
+        </article>
       </div>
+      <p class="pj-files">Combined deck for all three projects: <a href="projects/portfolio-final-presentation.pptx" download>Final Project Presentation (PPTX)</a></p>
     </section>
 
     <section id="honors">
@@ -638,11 +708,36 @@ footer .inner{display:flex;justify-content:space-between;flex-wrap:wrap;gap:8px;
           <li>Summa Cum Laude, M.S. Big Data Analytics<small>Bay Atlantic University, 2026</small></li>
           <li>President's List<small>Bay Atlantic University, Fall 2023 and Spring 2024</small></li>
         </ul></div>
-        <div><h3>Professional certifications</h3><ul class="plain">
-          <li>CompTIA Data+ (DA0-002)<small>CompTIA, July 2026 · valid through July 2029</small></li>
-          <li>Professional Data Analyst Certification<small>Hiring Fluency · score 83%</small></li>
+        <div><h3>Other training</h3><ul class="plain">
           <li>SQL for Data Analysis; Python for Data Science<small>DataSkool.org, 2025</small></li>
         </ul></div>
+      </div>
+      <h3 class="sub" id="certifications">Professional Certifications</h3>
+      <div class="certs">
+        <article class="cert">
+          <img src="certificates/comptia-data-plus-badge.png" alt="CompTIA Data+ certification badge" width="84" height="84" loading="lazy">
+          <div>
+            <h4>CompTIA Data+ (DA0-002)</h4>
+            <p>CompTIA · Certified July 9, 2026 · Valid through July 9, 2029</p>
+            <p class="cid">Candidate ID COMP001023074842 · Verification code ccde530cb44b4d9bbcf8e46d2cf17d14</p>
+            <div class="pj-btns">
+              <a class="btn" href="certificates/comptia-data-plus-certificate.png" target="_blank" rel="noopener">View Certificate</a>
+              <a class="btn ghost" href="https://verify.comptia.org" target="_blank" rel="noopener">Verify at CompTIA</a>
+            </div>
+          </div>
+        </article>
+        <article class="cert">
+          <img src="certificates/hiring-fluency-logo.png" alt="Hiring Fluency logo" width="84" height="84" loading="lazy">
+          <div>
+            <h4>Data Analyst — Professional Certification Program</h4>
+            <p>Hiring Fluency · Completed March 9, 2026 · Score 83% (Passed)</p>
+            <p class="cid">Certificate ID VC-1773043255844-bgzlz0</p>
+            <div class="pj-btns">
+              <a class="btn" href="certificates/hiring-fluency-data-analyst-certificate.png" target="_blank" rel="noopener">View Certificate</a>
+              <a class="btn ghost" href="https://hiringfluency.com/certifications/verify/VC-1773043255844-bgzlz0" target="_blank" rel="noopener">Verify Online</a>
+            </div>
+          </div>
+        </article>
       </div>
     </section>
 
